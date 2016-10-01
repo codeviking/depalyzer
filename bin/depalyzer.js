@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-const copyProperties = require('../lib/copyProperties');
+const getPropertyMap = require('../lib/getPropertyMap');
 const countDependencies = require('../lib/countDependencies');
 const Summary = require('../lib/Summary');
 const ModifiedGlobal = require('../lib/ModifiedGlobal');
@@ -45,7 +45,7 @@ if (!moduleName) {
 // Create a copy of each object's properties and methods prior to loading the dependency
 const originals = new Map();
 globals.forEach((object, name) => {
-  originals.set(name, copyProperties(object));
+  originals.set(name, getPropertyMap(object));
 });
 
 // Install the dependency
@@ -65,7 +65,7 @@ console.log(`${chalk.yellow(moduleName)} ${chalk.cyan('includes')} ${chalk.yello
 // Examine each global and examine whether it was modified by the loaded dependency
 const summary = new Summary();
 globals.forEach((object, name) => {
-  const differences = diff(originals.get(name), copyProperties(object));
+  const differences = diff(originals.get(name), getPropertyMap(object));
   if (Array.isArray(differences)) {
     summary.addModifiedGlobal(
       new ModifiedGlobal({
