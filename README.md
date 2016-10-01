@@ -42,7 +42,7 @@ depalyzer [--verbose] module-name
 For a module with > 1 modification to build-in types, the script will exit with the code `1` and you'll see output like:
 
 ```
-padowan@pure-deps> ./bin/depalyzer true-html-escape
+padowan@pure-deps> depalyzer true-html-escape
 true-html-escape includes 3 dependencies...
 ✓ 3 globals were not modified.
    ✓ Object.prototype
@@ -64,7 +64,7 @@ true-html-escape includes 3 dependencies...
 For a module without modifications, the script will exit with code `0` and you'll see output like:
 
 ```
-padowan@pure-deps> ./bin/depalyzer escape-html
+padowan@pure-deps> depalyzer escape-html
 escape-html includes 0 dependencies...
 ✓ Success: No globals were modified.
    ✓ Array
