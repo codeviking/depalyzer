@@ -1,13 +1,13 @@
 {
   "name": "depalyzer",
   "version": "0.0.1",
-  "description": "A tool for analyzing npm modules as to assess whether they mutate native Javascript types.",
+  "description": "A tool which determines whether an npm module modifies the built-in javascript types like `Array`, `Object`, etc.",
   "bin": "bin/depalyzer.js",
   "scripts": {
     "test": "echo \"Error: no tests yet!\" && exit 1"
   },
   "author": "Sam Skjonsberg <sam@codeviking.net> (http://codeviking.net)",
-  "license": "GPL",
+  "license": "LGPL-3.0",
   "repository": "codeviking/depalyzer",
   "dependencies": {
     "chalk": "1.1.3",
